@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import WeatherSummaryIcon from "./WeatherSummaryIcon";
 
 class DayListItem extends Component {
-
   render() {
     return (
-      <h2>{this.props.dayOfWeek}</h2>
-    )
+      <div className="day">
+        <h3>{this.props.dayOfWeek.substring(0, 3)}</h3>
+        <WeatherSummaryIcon summary={this.props.summary} />
+      </div>
+    );
   }
 }
 
-export default DayListItem
+export default DayListItem;
