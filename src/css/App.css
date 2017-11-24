@@ -49,6 +49,17 @@ body {
 .dayListContainer .day {
   margin: 0 5px;
   cursor: pointer;
+  padding: 15px 10px;
+  border: dotted 1px #ccc;
+  border-radius: 10%;
+}
+
+.dayListContainer .day h3 {
+  margin-top: 0;
+}
+
+.dayListContainer .day.selected {
+  background-color: #fafafa;
 }
 
 .weather-icon {
@@ -60,6 +71,7 @@ body {
   vertical-align: middle;
   width: 55px;
   height: 55px;
+  background-color: #fff;
 }
 
 .weather-icon:before {
