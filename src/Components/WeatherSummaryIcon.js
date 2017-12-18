@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class WeatherSummaryIcon extends Component {
   render() {
@@ -8,6 +9,11 @@ class WeatherSummaryIcon extends Component {
       </span>
     )
   }
+}
+
+WeatherSummaryIcon.propTypes = {
+  iconPath: PropTypes.string.isRequired,
+  altText: PropTypes.string.isRequired
 }
 
 export default WeatherSummaryIcon

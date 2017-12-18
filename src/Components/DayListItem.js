@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import WeatherSummaryIcon from "./WeatherSummaryIcon"
+import PropTypes from "prop-types"
 
 class DayListItem extends Component {
   render() {
@@ -10,6 +11,14 @@ class DayListItem extends Component {
       </div>
     )
   }
+}
+
+DayListItem.propTypes = {
+  selected: PropTypes.bool.isRequired,
+  onclick: PropTypes.func.isRequired,
+  dayOfWeek: PropTypes.string.isRequired,
+  iconPath: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired
 }
 
 export default DayListItem
