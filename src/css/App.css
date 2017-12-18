@@ -63,7 +63,6 @@ body {
 }
 
 .weather-icon {
-  font-size: 2em;
   border: solid 1px #cccccc;
   border-radius: 50%;
   display: inline-block;
@@ -82,8 +81,24 @@ body {
   opacity: 0.4;
 }
 
-.weather-icon i {
+.weather-icon img {
   vertical-align: middle;
   display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+.error-message {
+  color: #fff;
   font-weight: bold;
+  padding: 10px;
+  background-color: rgb(231, 147, 147);
+  border: solid 1px rgb(187, 6, 6);
+  margin: 10px 0;
+  cursor: default;
+}
+
+.loading-spinner {
+  text-align: center;
+  margin: 20px 0;
 }
