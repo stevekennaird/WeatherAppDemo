@@ -4,7 +4,7 @@ import Badge from "./Badge"
 import ReactTooltip from "react-tooltip"
 import PropTypes from "prop-types"
 
-class HourItem extends Component {
+class HourForecast extends Component {
   render() {
     const tooltipId = `tooltip_${this.props.hour}`
     return (
@@ -52,7 +52,7 @@ class HourItem extends Component {
   }
 }
 
-HourItem.propTypes = {
+HourForecast.propTypes = {
   hour: PropTypes.string.isRequired,
   iconPath: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
@@ -64,4 +64,4 @@ HourItem.propTypes = {
   windSpeed: PropTypes.string.isRequired
 }
 
-export default HourItem
+export default HourForecast

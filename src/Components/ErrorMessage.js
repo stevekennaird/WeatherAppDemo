@@ -2,24 +2,12 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 class ErrorMessage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { messageToDisplay: this.props.summary }
-  }
-  handleClick = () => {
-    if (this.props.detail) {
-      this.setState({
-        messageToDisplay:
-          this.state.messageToDisplay === this.props.summary
-            ? this.props.detail
-            : this.props.summary
-      })
-    }
-  }
   render() {
+    const detail = this.props.detail ? <em>{this.props.detail}</em> : null
     return (
-      <div className="error-message" onClick={this.handleClick}>
-        {this.state.messageToDisplay}
+      <div className="error-message">
+        <strong>{this.props.summary}</strong>
+        {detail}
       </div>
     )
   }

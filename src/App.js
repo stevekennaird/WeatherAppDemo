@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import logo from "./img/header/logo.png"
 import "./css/App.css"
-import DayList from "./Components/DayList"
+import DayNav from "./Components/DayNav"
 import LocationForm from "./Components/LocationForm"
 
 class App extends Component {
@@ -24,7 +24,7 @@ class App extends Component {
         </header>
         <div>
           <LocationForm defaultLocation={this.defaultLocation} onSubmit={this.setLocation} />
-          <DayList location={this.state.location} />
+          <DayNav location={this.state.location} />
         </div>
       </div>
     )

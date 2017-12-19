@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { DateTime } from "luxon"
-import DayListItem from "./DayListItem"
+import DayNavItem from "./DayNavItem"
 import ErrorMessage from "./ErrorMessage"
 import LoadingSpinner from "./LoadingSpinner"
-import DayBreakdown from "./DayBreakdown"
+import DayForecast from "./DayForecast"
 
-class DayList extends Component {
+class DayNav extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -59,6 +59,7 @@ class DayList extends Component {
       })
   }
 
+  // Set the selected day index to show the hourly breakdown for
   handleDayClick = newIndex => {
     this.setState({ selectedIndex: newIndex })
   }
@@ -80,14 +81,14 @@ class DayList extends Component {
     const days = this.state.forecast.forecastday.map((day, index) => {
       const dayDate = DateTime.fromISO(day.date)
       return (
-        <DayListItem
+        <DayNavItem
           key={index}
           date={dayDate}
           summary={day.day.condition.text}
           selected={index === this.state.selectedIndex}
           iconPath={day.day.condition.icon}
-          minTemp={`${Math.round(day.day.mintemp_c)}°C`}
-          maxTemp={`${Math.round(day.day.maxtemp_c)}°C`}
+          minTemp={`${Math.round(day.day.mintemp_c)}°`}
+          maxTemp={`${Math.round(day.day.maxtemp_c)}°`}
           onclick={() => this.handleDayClick(index)}
         />
       )
@@ -99,10 +100,10 @@ class DayList extends Component {
       <div>
         <h2>7-day Forecast for {this.state.locationName}</h2>
         <div className="dayListContainer">{days}</div>
-        <DayBreakdown date={selectedDay.date} hours={selectedDay.hour} />
+        <DayForecast date={selectedDay.date} hours={selectedDay.hour} />
       </div>
     )
   }
 }
 
-export default DayList
+export default DayNav

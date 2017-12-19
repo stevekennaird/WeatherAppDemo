@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { DateTime } from "luxon"
-import HourItem from "./HourItem"
+import HourForecast from "./HourForecast"
 
-export default class DayBreakdown extends Component {
+export default class DayForecast extends Component {
   render() {
     const now = DateTime.local()
     const hours = this.props.hours.map((hour, index) => {
@@ -14,14 +14,14 @@ export default class DayBreakdown extends Component {
       }
 
       return (
-        <HourItem
+        <HourForecast
           key={index}
           hour={time.toFormat("HH")}
           summary={hour.condition.text}
           iconPath={hour.condition.icon}
-          temperature={`${Math.round(hour.temp_c)}°C`}
+          temperature={`${Math.round(hour.temp_c)}°`}
           chanceOfRain={`${hour.chance_of_rain}%`}
-          temperatureFeelsLike={`${Math.round(hour.feelslike_c)}°C`}
+          temperatureFeelsLike={`${Math.round(hour.feelslike_c)}°`}
           precipitation={`${hour.precip_mm}mm`}
           windDirection={hour.wind_dir}
           windSpeed={`${hour.wind_mph} mph`}

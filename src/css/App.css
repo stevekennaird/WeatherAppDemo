@@ -209,6 +209,10 @@ span.badge {
   cursor: default;
 }
 
+.error-message * {
+  display: block;
+}
+
 .loading-spinner {
   text-align: center;
   margin: 20px 0;

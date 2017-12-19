@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import WeatherSummaryIcon from "./WeatherSummaryIcon"
 import PropTypes from "prop-types"
 
-class DayListItem extends Component {
+class DayNavItem extends Component {
   render() {
     return (
       <div className={this.props.selected ? "day selected" : "day"} onClick={this.props.onclick}>
@@ -19,7 +19,7 @@ class DayListItem extends Component {
   }
 }
 
-DayListItem.propTypes = {
+DayNavItem.propTypes = {
   selected: PropTypes.bool.isRequired,
   onclick: PropTypes.func.isRequired,
   date: PropTypes.object.isRequired,
@@ -29,4 +29,4 @@ DayListItem.propTypes = {
   maxTemp: PropTypes.string.isRequired
 }
 
-export default DayListItem
+export default DayNavItem
