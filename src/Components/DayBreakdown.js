@@ -5,7 +5,6 @@ import HourItem from "./HourItem"
 export default class DayBreakdown extends Component {
   render() {
     const now = DateTime.local()
-    const dateDisplay = DateTime.fromISO(this.props.date).toLocaleString(DateTime.DATE_HUGE)
     const hours = this.props.hours.map((hour, index) => {
       const time = DateTime.fromString(hour.time, "yyyy-MM-dd HH:mm")
 

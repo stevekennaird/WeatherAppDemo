@@ -22,26 +22,28 @@ class HourItem extends Component {
             </strong>
             <hr />
             <table>
-              <tr>
-                <td>Chance of rain</td>
-                <td>{this.props.chanceOfRain}</td>
-              </tr>
-              <tr>
-                <td>Feels like</td>
-                <td>{this.props.temperatureFeelsLike}</td>
-              </tr>
-              <tr>
-                <td>Precipitation</td>
-                <td>{this.props.precipitation}</td>
-              </tr>
-              <tr>
-                <td>Wind direction</td>
-                <td>{this.props.windDirection}</td>
-              </tr>
-              <tr>
-                <td>Wind speed</td>
-                <td>{this.props.windSpeed}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Chance of rain</td>
+                  <td>{this.props.chanceOfRain}</td>
+                </tr>
+                <tr>
+                  <td>Feels like</td>
+                  <td>{this.props.temperatureFeelsLike}</td>
+                </tr>
+                <tr>
+                  <td>Precipitation</td>
+                  <td>{this.props.precipitation}</td>
+                </tr>
+                <tr>
+                  <td>Wind direction</td>
+                  <td>{this.props.windDirection}</td>
+                </tr>
+                <tr>
+                  <td>Wind speed</td>
+                  <td>{this.props.windSpeed}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </ReactTooltip>
