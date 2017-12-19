@@ -27,6 +27,13 @@ class DayNav extends Component {
   }
 
   loadData = location => {
+    // Reset the state to show the loading spinner
+    this.setState({
+      dataLoaded: false,
+      dataError: false
+    })
+
+    // Call the 3rd party API
     const apiKey = "fdd32583386d4d6d9e4111647171812"
     axios
       .get(`http://api.apixu.com/v1/forecast.json?key=${apiKey}&q=${location}&days=7`)
