@@ -4,6 +4,7 @@ import { DateTime } from "luxon"
 import DayListItem from "./DayListItem"
 import ErrorMessage from "./ErrorMessage"
 import LoadingSpinner from "./LoadingSpinner"
+import DayBreakdown from "./DayBreakdown"
 
 class DayList extends Component {
   constructor() {
@@ -64,7 +65,7 @@ class DayList extends Component {
       return (
         <DayListItem
           key={index}
-          dayOfWeek={dayDate.toLocaleString({ weekday: "long" })}
+          date={dayDate}
           summary={day.day.condition.text}
           selected={index === this.state.selectedIndex}
           iconPath={day.day.condition.icon}
@@ -73,10 +74,13 @@ class DayList extends Component {
       )
     })
 
+    const selectedDay = this.state.forecast.forecastday[this.state.selectedIndex]
+    console.log("selectedDay", selectedDay)
     return (
       <div>
-        <h3>Select a day to view an hourly forecast:</h3>
+        <h2>7-day Forecast</h2>
         <div className="dayListContainer">{days}</div>
+        <DayBreakdown date={selectedDay.date} hours={selectedDay.hour} />
       </div>
     )
   }

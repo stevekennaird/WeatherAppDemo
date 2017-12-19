@@ -40,10 +40,20 @@ body {
   }
 }
 
+span.badge {
+  background-color: rgb(32, 212, 86);
+  color: #fff;
+  padding: 3px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .dayListContainer {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .dayListContainer .day {
@@ -52,14 +62,68 @@ body {
   padding: 15px 10px;
   border: dotted 1px #ccc;
   border-radius: 10%;
+  position: relative;
 }
 
 .dayListContainer .day h3 {
-  margin-top: 0;
+  margin: 0 0 5px 0;
+}
+
+.dayListContainer .day h4 {
+  margin: 0 0 8px 0;
+  font-weight: normal;
 }
 
 .dayListContainer .day.selected {
-  background-color: #fafafa;
+  background-color: #a2c3f3;
+  border: solid 1px rgb(52, 121, 212);
+}
+
+/* The triangle on the bottom of the selected day */
+.dayListContainer .day.selected:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  width: 0;
+  height: 0;
+  border-top: solid 10px rgb(52, 121, 212);
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+}
+
+.dayBreakdownContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dayBreakdownContainer .hour {
+  width: 40px;
+  padding: 10px 2px;
+  border-right: dotted 1px #ccc;
+  text-align: center;
+}
+
+.dayBreakdownContainer .hour:nth-of-type(1) {
+  border-left: dotted 1px #ccc;
+}
+
+.dayBreakdownContainer .hour h5 {
+  margin: 0 0 5px 0;
+}
+
+.dayBreakdownContainer .hour h5 sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -1px;
+  color: #525252;
+}
+
+.dayBreakdownContainer .hour span.badge {
+  font-size: 11px;
 }
 
 .weather-icon {
@@ -88,6 +152,17 @@ body {
   height: 40px;
 }
 
+.hour .weather-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.hour .weather-icon img {
+  width: 22px;
+  height: 22px;
+}
+
 .error-message {
   color: #fff;
   font-weight: bold;
@@ -101,4 +176,16 @@ body {
 .loading-spinner {
   text-align: center;
   margin: 20px 0;
+}
+
+.hour-tooltip-contents {
+  text-align: left;
+}
+
+.hour-tooltip-contents hr {
+  color: #fff;
+}
+
+.hour-tooltip-contents table tr td:nth-of-type(2) {
+  padding-left: 15px;
 }
