@@ -9,6 +9,7 @@ It's a pretty easy app, no need for Redux etc
 ### Any tips/knowledge you’ve picked up that you want to share
 
 * Avoiding `this` hell with the ES6 style `funcName = (param1, param2) =>` (though there are good videos out there explaining scope of `this`)
+* Functional stateless components (e.g. Badge.js) are more simple, less characters, you can easily tell they don't do anything complex, and more portable to other frameworks (https://javascriptplayground.com/blog/2017/03/functional-stateless-components-react/)
 
 ### Anything you struggled with
 

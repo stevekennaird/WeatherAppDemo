@@ -1,16 +1,14 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
-class ErrorMessage extends Component {
-  render() {
-    const detail = this.props.detail ? <em>{this.props.detail}</em> : null
-    return (
-      <div className="error-message">
-        <strong>{this.props.summary}</strong>
-        {detail}
-      </div>
-    )
-  }
+const ErrorMessage = props => {
+  const detail = this.props.detail ? <em>{this.props.detail}</em> : null
+  return (
+    <div className="error-message">
+      <strong>{this.props.summary}</strong>
+      {detail}
+    </div>
+  )
 }
 
 ErrorMessage.propTypes = {

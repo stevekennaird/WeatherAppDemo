@@ -1,11 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 
-class Badge extends Component {
-  render() {
-    return <span className="badge">{this.props.content}</span>
-  }
-}
+// This is a Functional Stateless Component (see hacker-day-readme.md)
+const Badge = props => <span className="badge">{props.content}</span>
 
 Badge.propTypes = {
   content: PropTypes.string.isRequired

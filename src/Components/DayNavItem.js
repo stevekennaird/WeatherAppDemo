@@ -1,23 +1,21 @@
-import React, { Component } from "react"
+import React from "react"
 import WeatherSummaryIcon from "./WeatherSummaryIcon"
 import PropTypes from "prop-types"
 
-class DayNavItem extends Component {
-  render() {
-    return (
-      <div className={this.props.selected ? "day selected" : "day"} onClick={this.props.onclick}>
-        <h3>{this.props.date.toLocaleString({ weekday: "long" }).substring(0, 3)}</h3>
-        <h4>{this.props.date.toFormat("dd/MM")}</h4>
-        <WeatherSummaryIcon iconPath={this.props.iconPath} altText={this.props.summary} />
-        <div className="temperatures">
-          <span title="Max temperature">{this.props.maxTemp}</span>
-          {" / "}
-          <span title="Min temperature">{this.props.minTemp}</span>
-        </div>
-      </div>
-    )
-  }
-}
+// Functional stateless component showing the summary for a day, which when clicked
+// loads the hourly forecast for the day
+const DayNavItem = props => (
+  <div className={props.selected ? "day selected" : "day"} onClick={props.onclick}>
+    <h3>{props.date.toLocaleString({ weekday: "long" }).substring(0, 3)}</h3>
+    <h4>{props.date.toFormat("dd/MM")}</h4>
+    <WeatherSummaryIcon iconPath={props.iconPath} altText={props.summary} />
+    <div className="temperatures">
+      <span title="Max temperature">{props.maxTemp}</span>
+      {" / "}
+      <span title="Min temperature">{props.minTemp}</span>
+    </div>
+  </div>
+)
 
 DayNavItem.propTypes = {
   selected: PropTypes.bool.isRequired,
