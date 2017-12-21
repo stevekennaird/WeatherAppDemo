@@ -7,13 +7,10 @@ import LoadingSpinner from "./LoadingSpinner"
 import DayForecast from "./DayForecast"
 
 class DayNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      dataLoaded: false,
-      dataError: false,
-      selectedIndex: 0
-    }
+  state = {
+    dataLoaded: false,
+    dataError: false,
+    selectedIndex: 0
   }
 
   // Call the API to load the data on page load (i.e. default location)

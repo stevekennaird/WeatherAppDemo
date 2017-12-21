@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 
 // The location search form, with a textbox and a button
 class LocationForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { location: this.props.defaultLocation, currentValue: this.props.defaultLocation }
+  state = {
+    location: this.props.defaultLocation,
+    currentValue: this.props.defaultLocation
   }
 
   updateLocationToCurrentValue = () => {
