@@ -2,10 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const ErrorMessage = props => {
-  const detail = this.props.detail ? <em>{this.props.detail}</em> : null
+  const detail = props.detail ? <em>{props.detail}</em> : null
   return (
     <div className="error-message">
-      <strong>{this.props.summary}</strong>
+      <strong>{props.summary}</strong>
       {detail}
     </div>
   )
