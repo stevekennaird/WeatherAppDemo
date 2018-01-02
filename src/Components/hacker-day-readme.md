@@ -31,6 +31,12 @@ Like the fast load times after making a change!!!
 
 ### What next (for me, and for any spare time in the day)
 
+What can we learn from: https://github.com/bvaughn/personal-logger (side project by somebody in the core React team)
+
+Get tips from: https://vasanthk.gitbooks.io/react-bits/
+
 Consider using styled components (https://github.com/styled-components/styled-components , https://javascriptplayground.com/blog/2017/08/introduction-to-styled-components-react/)
+
+Or https://github.com/rapidjs/rapid.js for API config stuff
 
 Consider adding unit tests for components (Jest), or end-to-end tests (Cypress.io)
