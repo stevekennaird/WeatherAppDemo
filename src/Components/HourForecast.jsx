@@ -4,52 +4,6 @@ import Badge from "./Badge"
 import ReactTooltip from "react-tooltip"
 import PropTypes from "prop-types"
 
-const HourForecast = props => {
-  const tooltipId = `tooltip_${props.hour}`
-  return (
-    <div className="hour" data-tip data-for={tooltipId}>
-      <h5>
-        {props.hour}
-        <sup>00</sup>
-      </h5>
-      <WeatherSummaryIcon iconPath={props.iconPath} altText={props.summary} />
-      <Badge content={props.temperature} />
-      <ReactTooltip id={tooltipId} aria-haspopup="true" data-place="bottom">
-        <div className="hour-tooltip-contents">
-          <strong>
-            {props.hour}:00 - {props.summary}
-          </strong>
-          <hr />
-          <table>
-            <tbody>
-              <tr>
-                <td>Chance of rain</td>
-                <td>{props.chanceOfRain}</td>
-              </tr>
-              <tr>
-                <td>Feels like</td>
-                <td>{props.temperatureFeelsLike}</td>
-              </tr>
-              <tr>
-                <td>Precipitation</td>
-                <td>{props.precipitation}</td>
-              </tr>
-              <tr>
-                <td>Wind direction</td>
-                <td>{props.windDirection}</td>
-              </tr>
-              <tr>
-                <td>Wind speed</td>
-                <td>{props.windSpeed}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </ReactTooltip>
-    </div>
-  )
-}
-
 HourForecast.propTypes = {
   hour: PropTypes.string.isRequired,
   iconPath: PropTypes.string.isRequired,
@@ -62,4 +16,58 @@ HourForecast.propTypes = {
   windSpeed: PropTypes.string.isRequired
 }
 
-export default HourForecast
+export default function HourForecast({
+  hour,
+  summary,
+  iconPath,
+  temperature,
+  chanceOfRain,
+  temperatureFeelsLike,
+  precipitation,
+  windDirection,
+  windSpeed
+}) {
+  const tooltipId = `tooltip_${hour}`
+  return (
+    <div className="hour" data-tip data-for={tooltipId}>
+      <h5>
+        {hour}
+        <sup>00</sup>
+      </h5>
+      <WeatherSummaryIcon iconPath={iconPath} altText={summary} />
+      <Badge content={temperature} />
+      <ReactTooltip id={tooltipId} aria-haspopup="true" data-place="bottom">
+        <div className="hour-tooltip-contents">
+          <strong>
+            {hour}:00 - {summary}
+          </strong>
+          <hr />
+          <table>
+            <tbody>
+              <tr>
+                <td>Chance of rain</td>
+                <td>{chanceOfRain}</td>
+              </tr>
+              <tr>
+                <td>Feels like</td>
+                <td>{temperatureFeelsLike}</td>
+              </tr>
+              <tr>
+                <td>Precipitation</td>
+                <td>{precipitation}</td>
+              </tr>
+              <tr>
+                <td>Wind direction</td>
+                <td>{windDirection}</td>
+              </tr>
+              <tr>
+                <td>Wind speed</td>
+                <td>{windSpeed}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ReactTooltip>
+    </div>
+  )
+}

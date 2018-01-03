@@ -2,10 +2,15 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 // The location search form, with a textbox and a button
-class LocationForm extends Component {
+export default class LocationForm extends Component {
   state = {
     location: this.props.defaultLocation,
     currentValue: this.props.defaultLocation
+  }
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    defaultLocation: PropTypes.string.isRequired
   }
 
   render() {
@@ -56,10 +61,3 @@ class LocationForm extends Component {
     }
   }
 }
-
-LocationForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  defaultLocation: PropTypes.string.isRequired
-}
-
-export default LocationForm
