@@ -31,6 +31,8 @@ Like the fast load times after making a change!!!
 
 ### What next (for me, and for any spare time in the day)
 
+Airbnb code guidelines: https://github.com/airbnb/javascript/tree/master/react
+
 What can we learn from: https://github.com/bvaughn/personal-logger (side project by somebody in the core React team)
 
 Get tips from: https://vasanthk.gitbooks.io/react-bits/
