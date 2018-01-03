@@ -35,6 +35,8 @@ What can we learn from: https://github.com/bvaughn/personal-logger (side project
 
 Get tips from: https://vasanthk.gitbooks.io/react-bits/
 
+setState vs mobx: https://blog.cloudboost.io/3-reasons-why-i-stopped-using-react-setstate-ab73fc67a42e
+
 Consider using styled components (https://github.com/styled-components/styled-components , https://javascriptplayground.com/blog/2017/08/introduction-to-styled-components-react/)
 
 Or https://github.com/rapidjs/rapid.js for API config stuff

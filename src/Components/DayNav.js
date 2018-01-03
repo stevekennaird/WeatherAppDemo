@@ -15,15 +15,56 @@ class DayNav extends Component {
 
   // Call the API to load the data on page load (i.e. default location)
   componentDidMount = () => {
-    this.loadData(this.props.location)
+    this._loadData(this.props.location)
   }
 
   // Call the API to load the data when the user changes the location
   componentWillReceiveProps = nextProps => {
-    this.loadData(nextProps.location)
+    this._loadData(nextProps.location)
   }
 
-  loadData = location => {
+  render() {
+    if (this.state.dataError) {
+      return (
+        <ErrorMessage
+          summary="There was a problem fetching data from the API"
+          detail={this.state.errorMessage}
+        />
+      )
+    }
+
+    if (!this.state.dataLoaded) {
+      return <LoadingSpinner />
+    }
+
+    const days = this.state.forecast.forecastday.map((day, index) => {
+      const dayDate = DateTime.fromISO(day.date)
+      return (
+        <DayNavItem
+          key={index}
+          date={dayDate}
+          summary={day.day.condition.text}
+          selected={index === this.state.selectedIndex}
+          iconPath={day.day.condition.icon}
+          minTemp={`${Math.round(day.day.mintemp_c)}°`}
+          maxTemp={`${Math.round(day.day.maxtemp_c)}°`}
+          onclick={() => this._handleDayClick(index)}
+        />
+      )
+    })
+
+    const selectedDay = this.state.forecast.forecastday[this.state.selectedIndex]
+    // console.log("selectedDay", selectedDay)
+    return (
+      <div>
+        <h2>7-day Forecast for {this.state.locationName}</h2>
+        <div className="dayListContainer">{days}</div>
+        <DayForecast date={selectedDay.date} hours={selectedDay.hour} />
+      </div>
+    )
+  }
+
+  _loadData = location => {
     // Reset the state to show the loading spinner
     this.setState({
       dataLoaded: false,
@@ -64,49 +105,8 @@ class DayNav extends Component {
   }
 
   // Set the selected day index to show the hourly breakdown for
-  handleDayClick = newIndex => {
+  _handleDayClick = newIndex => {
     this.setState({ selectedIndex: newIndex })
-  }
-
-  render() {
-    if (this.state.dataError) {
-      return (
-        <ErrorMessage
-          summary="There was a problem fetching data from the API"
-          detail={this.state.errorMessage}
-        />
-      )
-    }
-
-    if (!this.state.dataLoaded) {
-      return <LoadingSpinner />
-    }
-
-    const days = this.state.forecast.forecastday.map((day, index) => {
-      const dayDate = DateTime.fromISO(day.date)
-      return (
-        <DayNavItem
-          key={index}
-          date={dayDate}
-          summary={day.day.condition.text}
-          selected={index === this.state.selectedIndex}
-          iconPath={day.day.condition.icon}
-          minTemp={`${Math.round(day.day.mintemp_c)}°`}
-          maxTemp={`${Math.round(day.day.maxtemp_c)}°`}
-          onclick={() => this.handleDayClick(index)}
-        />
-      )
-    })
-
-    const selectedDay = this.state.forecast.forecastday[this.state.selectedIndex]
-    // console.log("selectedDay", selectedDay)
-    return (
-      <div>
-        <h2>7-day Forecast for {this.state.locationName}</h2>
-        <div className="dayListContainer">{days}</div>
-        <DayForecast date={selectedDay.date} hours={selectedDay.hour} />
-      </div>
-    )
   }
 }
 

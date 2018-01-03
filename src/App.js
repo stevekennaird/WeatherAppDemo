@@ -11,10 +11,6 @@ class App extends Component {
     this.state = { location: this.defaultLocation }
   }
 
-  setLocation = newLocation => {
-    this.setState({ location: newLocation })
-  }
-
   render() {
     return (
       <div className="App">
@@ -23,11 +19,15 @@ class App extends Component {
           <h1 className="App-title">Weather Forecast App</h1>
         </header>
         <div>
-          <LocationForm defaultLocation={this.defaultLocation} onSubmit={this.setLocation} />
+          <LocationForm defaultLocation={this.defaultLocation} onSubmit={this._setLocation} />
           <DayNav location={this.state.location} />
         </div>
       </div>
     )
+  }
+
+  _setLocation = newLocation => {
+    this.setState({ location: newLocation })
   }
 }
 

@@ -8,29 +8,6 @@ class LocationForm extends Component {
     currentValue: this.props.defaultLocation
   }
 
-  updateLocationToCurrentValue = () => {
-    this.setState({ location: this.state.currentValue })
-    this.props.onSubmit(this.state.currentValue)
-  }
-
-  // Update the state with the latest textbox value
-  handleChange = event => {
-    this.setState({ currentValue: event.target.value })
-  }
-
-  // The user has hit the button to load a forecast
-  handleClick = event => {
-    event.preventDefault()
-    this.updateLocationToCurrentValue()
-  }
-
-  // Handle the user hitting enter/return after their search
-  handleSubmit = event => {
-    if (event.key === "Enter") {
-      this.updateLocationToCurrentValue()
-    }
-  }
-
   render() {
     return (
       <div className="location-search-form">
@@ -39,11 +16,11 @@ class LocationForm extends Component {
           id="locationSearch"
           type="text"
           value={this.state.currentValue}
-          onChange={this.handleChange}
-          onKeyPress={this.handleSubmit}
+          onChange={this._handleChange}
+          onKeyPress={this._handleSubmit}
         />
         <button
-          onClick={this.handleClick}
+          onClick={this._handleClick}
           disabled={
             !this.state.currentValue ||
             this.state.currentValue.length < 2 ||
@@ -54,6 +31,29 @@ class LocationForm extends Component {
         </button>
       </div>
     )
+  }
+
+  _updateLocationToCurrentValue = () => {
+    this.setState({ location: this.state.currentValue })
+    this.props.onSubmit(this.state.currentValue)
+  }
+
+  // Update the state with the latest textbox value
+  _handleChange = e => {
+    this.setState({ currentValue: e.target.value })
+  }
+
+  // The user has hit the button to load a forecast
+  _handleClick = e => {
+    e.preventDefault()
+    this._updateLocationToCurrentValue()
+  }
+
+  // Handle the user hitting enter/return after their search
+  _handleSubmit = e => {
+    if (e.key === "Enter") {
+      this._updateLocationToCurrentValue()
+    }
   }
 }
 
